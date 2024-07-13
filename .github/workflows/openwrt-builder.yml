@@ -70,8 +70,12 @@ jobs:
     - name: delete & add golang    
       run: |
         rm -r /workdir/openwrt/feeds/luci/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut
+        rm -r /workdir/openwrt/package/base-files/files/bin/config_generate
+        rm -r /workdir/openwrt/package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
         wget -qO- https://raw.githubusercontent.com/openwrt/luci/master/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut > /workdir/openwrt/feeds/luci/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut
-        
+        wget -qO- https://raw.githubusercontent.com/chungcon009/a/main/config_generate > /workdir/openwrt/package/base-files/files/bin/config_generate
+        wget -qO- https://raw.githubusercontent.com/chungcon009/a/main/mac80211.uc > /workdir/openwrt/package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
+ 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
