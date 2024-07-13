@@ -67,6 +67,11 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
+    - name: delete & add golang    
+      run: |
+        rm -r /workdir/openwrt/feeds/luci/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut
+        wget -qO- https://raw.githubusercontent.com/openwrt/luci/master/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut > /workdir/openwrt/feeds/luci/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut
+        
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
