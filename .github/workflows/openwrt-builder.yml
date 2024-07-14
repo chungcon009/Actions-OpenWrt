@@ -67,19 +67,6 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: delete & add golang    
-      run: |
-        rm -r /workdir/openwrt/feeds/luci/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut
-        rm -r /workdir/openwrt/package/base-files/files/bin/config_generate
-        rm -r /workdir/openwrt/package/network/config/wifi-scripts/files/lib/wifi/mac80211.sh
-        rm -r /workdir/openwrt/include/kernel-defaults.mk
-        wget -qO- https://raw.githubusercontent.com/openwrt/luci/master/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut > /workdir/openwrt/feeds/luci/themes/luci-theme-bootstrap/ucode/template/themes/bootstrap/header.ut
-        wget -qO- https://raw.githubusercontent.com/chungcon009/a/main/config_generate > /workdir/openwrt/package/base-files/files/bin/config_generate
-        wget -qO- https://raw.githubusercontent.com/chungcon009/a/main/mac80211.sh > /workdir/openwrt/package/network/config/wifi-scripts/files/lib/wifi/mac80211.sh
-        wget -qO- https://raw.githubusercontent.com/chungcon009/a/main/kernel-defaults.mk > /workdir/openwrt/include/kernel-defaults.mk
-        wget -qO- https://raw.githubusercontent.com/chungcon009/a/main/vermagic > /workdir/openwrt/vermagic
- 
- 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
