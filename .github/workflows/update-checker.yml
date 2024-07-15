@@ -13,8 +13,8 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: main
+  REPO_URL: https://github.com/CHUNGSEV/test.git
+  REPO_BRANCH: x-wrt
 
 on:
   workflow_dispatch:
