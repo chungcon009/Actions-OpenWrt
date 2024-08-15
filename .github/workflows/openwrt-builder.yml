@@ -68,6 +68,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds update -a
 
     - name: delete & add golang
+      run: |
         rm -r /workdir/openwrt/feeds/packages/net/curl/patches/200-no_docs_tests.patch
         rm -r /workdir/openwrt/feeds/packages/net/curl/patches/010-mbedtls-v3.6.0-workarounds.patch
         rm -r /workdir/openwrt/feeds/packages/net/curl/Makefile
