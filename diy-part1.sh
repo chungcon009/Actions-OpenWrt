@@ -14,5 +14,5 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo 'src-git Y https://github.com/CHUNGSEV/X.git;main' >>feeds.conf.default
-echo 'src-git Z https://github.com/CHUNGSEV/X.git;passwall2' >>feeds.conf.default
+#echo 'src-git Y https://github.com/CHUNGSEV/X.git;main' >>feeds.conf.default
+#echo 'src-git Z https://github.com/CHUNGSEV/X.git;passwall2' >>feeds.conf.default
