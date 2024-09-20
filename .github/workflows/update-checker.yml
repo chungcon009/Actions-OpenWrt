@@ -13,8 +13,8 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/CHUNGSEV/test.git
-  REPO_BRANCH: M520-1Gb
+  REPO_URL: https://github.com/CHUNGSEV/M520-2Gb.git
+  REPO_BRANCH: main
 
 on:
   workflow_dispatch:
