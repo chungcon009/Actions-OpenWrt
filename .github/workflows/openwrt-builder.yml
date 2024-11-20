@@ -67,11 +67,6 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: add config mwan3
-      run: |
-        rm -r /workdir/openwrt/feeds/packages/net/mwan3/files/etc/config/mwan3
-        wget -qO- https://raw.githubusercontent.com/CHUNGSEV/test/refs/heads/23.05.5/mwan3 > /workdir/openwrt/feeds/packages/net/mwan3/files/etc/config/mwan3
-        
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
