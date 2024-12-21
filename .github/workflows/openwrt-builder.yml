@@ -127,12 +127,10 @@ jobs:
         path: ${{ env.FIRMWARE }}
 
     - name: Generate release tag
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      id: stabletag
+      if: steps.autoselect.outputs.status == 'success' || steps.manualselect.outputs.status == 'success'
       run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
-        touch release.txt
-        [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "🔗 [GoFile](${{ steps.gofile.outputs.url }})" >> release.txt
+        echo "release_tag=$(cd $BUILD_ROOT && git describe --tags --abbrev=0 --exact-match)_$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
